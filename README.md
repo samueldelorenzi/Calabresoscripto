@@ -1,5 +1,9 @@
 # CalabresoScripto
 
+<p align="center">
+  <img src="assets/banner.png" alt="CalabresoScripto Banner" width="100%">
+</p>
+
 > **Universidade do Oeste de Santa Catarina (UNOESC) - Campus Videira**  
 > **Disciplina:** Compiladores  
 
