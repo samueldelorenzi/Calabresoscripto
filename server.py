@@ -12,6 +12,7 @@ HTML_PAGE = """
 <head>
     <meta charset="UTF-8">
     <title>CalabresoScripto</title>
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
@@ -315,6 +316,15 @@ class RequestHandler(BaseHTTPRequestHandler):
                 with open('assets/toninho-tornado.jpeg', 'rb') as f:
                     self.send_response(200)
                     self.send_header('Content-type', 'image/jpeg')
+                    self.end_headers()
+                    self.wfile.write(f.read())
+            else:
+                self.send_error(404, 'File Not Found')
+        elif self.path in ('/assets/favicon.ico', '/favicon.ico'):
+            if os.path.exists('assets/favicon.ico'):
+                with open('assets/favicon.ico', 'rb') as f:
+                    self.send_response(200)
+                    self.send_header('Content-type', 'image/x-icon')
                     self.end_headers()
                     self.wfile.write(f.read())
             else:
