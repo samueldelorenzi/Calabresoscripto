@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CalabresoScripto 98</title>
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/web/style.css">
+</head>
+<body>
+
+<!-- ============ TELA DE BOOT ============ -->
+<div id="boot" class="boot" hidden>
+    <div class="boot-logo">
+        <div class="flag"><i></i><i></i><i></i><i></i></div>
+        <div class="boot-title">
+            <small>Microsofto&reg;</small>
+            <span>Calabreso<b>98</b></span>
+        </div>
+    </div>
+    <div class="boot-bar"><div></div></div>
+    <div class="boot-hint">Esquentando a chapa... (clique pra pular)</div>
+</div>
+
+<!-- ============ DESKTOP ============ -->
+<main id="desktop" class="desktop">
+
+    <div class="desktop-icons">
+        <button class="desk-icon" data-open="win-editor">
+            <span class="ico ico-notepad"></span>
+            <span class="label">Bloco de Calabresos</span>
+        </button>
+        <button class="desk-icon" data-open="win-dos">
+            <span class="ico ico-dos"></span>
+            <span class="label">Prompt do MS-DOSo</span>
+        </button>
+        <button class="desk-icon" data-open="win-help">
+            <span class="ico ico-book"></span>
+            <span class="label">Dicionário do Calabreso</span>
+        </button>
+        <button class="desk-icon" data-action="about">
+            <span class="ico ico-computer"></span>
+            <span class="label">Meu Calabreso</span>
+        </button>
+        <button class="desk-icon" data-action="trash">
+            <span class="ico ico-trash"></span>
+            <span class="label">Lixeira do Iveto</span>
+        </button>
+    </div>
+
+    <!-- ======= DICIONÁRIO ======= -->
+    <section class="window" id="win-help" data-title="Dicionário do Calabreso" data-icon="ico-book">
+        <header class="title-bar">
+            <span class="ico ico-book sm"></span>
+            <span class="title-text">Dicionário do Calabreso</span>
+            <div class="title-buttons">
+                <button class="tb-btn" data-win="min" aria-label="Minimizar"><span class="g-min"></span></button>
+                <button class="tb-btn" data-win="max" aria-label="Maximizar"><span class="g-max"></span></button>
+                <button class="tb-btn" data-win="close" aria-label="Fechar"><span class="g-close"></span></button>
+            </div>
+        </header>
+        <div class="window-body help-body">
+            <div class="tabs" role="tablist">
+                <button class="tab active" data-tab="dict">Palavros</button>
+                <button class="tab" data-tab="dicas">Dicas</button>
+            </div>
+            <div class="tab-panel sunken" data-panel="dict">
+                <div class="listview" id="dict-list"></div>
+            </div>
+            <div class="tab-panel sunken dicas" data-panel="dicas" hidden>
+                <p><b>Duplo clique</b> numa palavra pra jogar ela no editor, meu delício.</p>
+                <p><kbd>F5</kbd> ou <kbd>Ctrl</kbd>+<kbd>Enter</kbd> executa o compilaço.</p>
+                <p>Todo programa começa com <code>Casos Bahio</code> e termina com <code>Sonho de Valso</code>.</p>
+                <p>Funções (<code>CNPJoto</code>) vêm <b>antes</b> do <code>Casos Bahio</code>.</p>
+                <p>Variável do <code>Cinderelo</code> precisa ser declarada antes, senão o Iveto reclama.</p>
+                <p>Seu código fica salvo sozinho no navegador. Pode fechar sem medo.</p>
+            </div>
+            <div class="status-bar">
+                <span class="status-field" id="dict-status">Clique duplo = inserir</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======= EDITOR ======= -->
+    <section class="window active" id="win-editor" data-title="programa.clb - Bloco de Calabresos" data-icon="ico-notepad">
+        <header class="title-bar">
+            <span class="ico ico-notepad sm"></span>
+            <span class="title-text"><span id="file-name">programa.clb</span><span id="dirty"></span> - Bloco de Calabresos</span>
+            <div class="title-buttons">
+                <button class="tb-btn" data-win="min" aria-label="Minimizar"><span class="g-min"></span></button>
+                <button class="tb-btn" data-win="max" aria-label="Maximizar"><span class="g-max"></span></button>
+                <button class="tb-btn" data-win="close" aria-label="Fechar"><span class="g-close"></span></button>
+            </div>
+        </header>
+        <nav class="menubar">
+            <div class="menu">
+                <button class="menu-title"><u>A</u>rquivo</button>
+                <div class="menu-drop">
+                    <button data-action="new">Novo</button>
+                    <button data-action="open">Abrir .clb...<kbd>Ctrl+O</kbd></button>
+                    <button data-action="save">Salvar .clb<kbd>Ctrl+S</kbd></button>
+                    <hr>
+                    <button data-action="shutdown">Desligar o calabreso</button>
+                </div>
+            </div>
+            <div class="menu">
+                <button class="menu-title"><u>E</u>xemplos</button>
+                <div class="menu-drop" id="examples-menu"></div>
+            </div>
+            <div class="menu">
+                <button class="menu-title">E<u>x</u>ecutar</button>
+                <div class="menu-drop">
+                    <button data-action="run">Compilaço!<kbd>F5</kbd></button>
+                    <button data-action="clear-output">Limpar saído</button>
+                </div>
+            </div>
+            <div class="menu">
+                <button class="menu-title">Aj<u>u</u>da</button>
+                <div class="menu-drop">
+                    <button data-open="win-help">Dicionário</button>
+                    <button data-action="tip">Dica do Toninho</button>
+                    <hr>
+                    <button data-action="about">Sobre o CalabresoScripto</button>
+                </div>
+            </div>
+        </nav>
+        <div class="toolbar">
+            <button class="tool" data-action="new" title="Novo"><span class="ico ico-new sm"></span></button>
+            <button class="tool" data-action="open" title="Abrir"><span class="ico ico-folder sm"></span></button>
+            <button class="tool" data-action="save" title="Salvar"><span class="ico ico-disk sm"></span></button>
+            <span class="tool-sep"></span>
+            <button class="tool run-tool" data-action="run" title="Executar (F5)">
+                <span class="play"></span> Compilaço
+            </button>
+        </div>
+        <div class="window-body editor-body">
+            <div class="editor sunken">
+                <div class="gutter" id="gutter" aria-hidden="true"></div>
+                <div class="code-wrap">
+                    <pre class="highlight" id="highlight" aria-hidden="true"></pre>
+                    <textarea id="code" spellcheck="false" autocomplete="off" autocapitalize="off" wrap="off"></textarea>
+                </div>
+            </div>
+            <div class="status-bar">
+                <span class="status-field grow" id="status-msg">Pronto, meu calabreso.</span>
+                <span class="status-field" id="status-pos">Ln 1, Col 1</span>
+                <span class="status-field" id="status-len">0 linhos</span>
+            </div>
+        </div>
+        <input type="file" id="file-input" accept=".clb,.txt" hidden>
+    </section>
+
+    <!-- ======= MS-DOS ======= -->
+    <section class="window" id="win-dos" data-title="Prompt do MS-DOSo" data-icon="ico-dos">
+        <header class="title-bar">
+            <span class="ico ico-dos sm"></span>
+            <span class="title-text">Prompt do MS-DOSo - CALABRESO.EXE</span>
+            <div class="title-buttons">
+                <button class="tb-btn" data-win="min" aria-label="Minimizar"><span class="g-min"></span></button>
+                <button class="tb-btn" data-win="max" aria-label="Maximizar"><span class="g-max"></span></button>
+                <button class="tb-btn" data-win="close" aria-label="Fechar"><span class="g-close"></span></button>
+            </div>
+        </header>
+        <div class="toolbar dos-toolbar">
+            <select class="field" id="dos-font" aria-label="Tamanho da fonte">
+                <option value="20">Auto</option>
+                <option value="16">8 x 12</option>
+                <option value="26">Calabreso</option>
+            </select>
+            <button class="tool" data-action="clear-output" title="Limpar">CLS</button>
+            <button class="tool" data-action="copy-output" title="Copiar">Copiar</button>
+        </div>
+        <div class="window-body">
+            <div class="dos sunken" id="output"></div>
+        </div>
+    </section>
+
+    <!-- ======= ASSISTENTE TONINHO ======= -->
+    <div class="assistant" id="assistant">
+        <div class="bubble" id="bubble">
+            <p id="bubble-text">Parece que você está tentando escrever um calabreso. Quer ajuda?</p>
+            <div class="bubble-actions">
+                <button class="btn" data-action="run">Compilaço!</button>
+                <button class="btn" data-action="tip">Outra dica</button>
+            </div>
+        </div>
+        <button class="toninho" data-action="run" title="Clica pro compilaço">
+            <img src="/assets/toninho-tornado.jpeg" alt="Toninho Tornado">
+        </button>
+    </div>
+</main>
+
+<!-- ============ BARRA DE TAREFAS ============ -->
+<footer class="taskbar">
+    <button class="start-btn" id="start-btn">
+        <span class="flag sm"><i></i><i></i><i></i><i></i></span>
+        <b>Iniciar</b>
+    </button>
+    <span class="tb-divider"></span>
+    <div class="quick-launch">
+        <button class="ql" data-open="win-editor" title="Bloco de Calabresos"><span class="ico ico-notepad sm"></span></button>
+        <button class="ql" data-open="win-dos" title="Prompt do MS-DOSo"><span class="ico ico-dos sm"></span></button>
+    </div>
+    <span class="tb-divider"></span>
+    <div class="task-list" id="task-list"></div>
+    <div class="tray sunken-thin">
+        <button class="tray-btn" id="sound-btn" title="Som ligado"><span class="ico ico-speaker sm"></span></button>
+        <span class="clock" id="clock">00:00</span>
+    </div>
+</footer>
+
+<!-- ============ MENU INICIAR ============ -->
+<div class="start-menu" id="start-menu" hidden>
+    <div class="start-side"><span>Calabreso<b>98</b></span></div>
+    <div class="start-items">
+        <button data-open="win-editor"><span class="ico ico-notepad"></span>Bloco de Calabresos</button>
+        <button data-open="win-dos"><span class="ico ico-dos"></span>Prompt do MS-DOSo</button>
+        <button data-open="win-help"><span class="ico ico-book"></span>Dicionário</button>
+        <hr>
+        <button data-action="run"><span class="ico ico-run"></span>Executar o compilaço...</button>
+        <button data-action="tip"><span class="ico ico-help"></span>Dica do Toninho</button>
+        <button data-action="about"><span class="ico ico-computer"></span>Sobre o Calabreso 98</button>
+        <hr>
+        <button data-action="shutdown"><span class="ico ico-power"></span>Desligar...</button>
+    </div>
+</div>
+
+<!-- ============ DIÁLOGOS ============ -->
+<div class="modal-layer" id="modal-layer" hidden></div>
+
+<!-- ============ TELA DE DESLIGAR ============ -->
+<div class="shutdown" id="shutdown" hidden>
+    <p>Agora é seguro desligar<br>o seu calabreso.</p>
+    <small>(clique em qualquer lugar pra religar)</small>
+</div>
+
+<div class="bsod" id="bsod" hidden>
+    <div class="bsod-inner">
+        <span class="bsod-title">CALABRESO</span>
+        <p>Ocorreu uma exceção fatal 0E em 0028:C0FFEE no módulo SONHO.VXD.
+        O programa foi encerrado porque alguém esqueceu o Sonho de Valso.</p>
+        <p>* Pressione qualquer tecla pra fingir que nada aconteceu.<br>
+        * Pressione CTRL+ALT+DEL pra pedir ajuda pro Iveto.</p>
+        <p class="center">Pressione qualquer tecla para continuar <span class="cursor">_</span></p>
+    </div>
+</div>
+
+<script src="/web/app.js"></script>
+</body>
+</html>
