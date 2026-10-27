@@ -65,6 +65,8 @@ python server.py
 ```
 Após isso, acesse `http://localhost:8000` no seu navegador.
 
+A interface (pasta `web/`) imita o Windows 98: janelas arrastáveis, editor com destaque de sintaxe, Prompt do MS-DOS para a saída e o assistente Toninho Tornado. Atalhos: `F5` ou `Ctrl+Enter` executa, `Ctrl+S` salva o `.clb` e `Ctrl+O` abre um arquivo.
+
 ### 2. Via Terminal
 Para rodar scripts diretamente pelo terminal, crie um arquivo de texto com a extensão `.clb` e passe-o como argumento para o analisador:
 
