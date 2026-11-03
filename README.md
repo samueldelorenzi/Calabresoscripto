@@ -7,6 +7,23 @@
 > **Universidade do Oeste de Santa Catarina (UNOESC) - Campus Videira**  
 > **Disciplina:** Compiladores  
 
+<table>
+  <tr>
+    <td align="center">
+      <img src="assets/kaua.jpg" width="100px;" style="border-radius: 50%;" alt="Kauã Camargo"/><br />
+      <sub><b>Kauã Camargo</b></sub>
+    </td>
+    <td align="center">
+      <img src="assets/wesllen.png" width="100px;" style="border-radius: 50%;" alt="Wesllen da Cruz"/><br />
+      <sub><b>Wesllen da Cruz</b></sub>
+    </td>
+    <td align="center">
+      <img src="assets/samuel.jpg" width="100px;" style="border-radius: 50%;" alt="Samuel De Lorenzi"/><br />
+      <sub><b>Samuel De Lorenzi</b></sub>
+    </td>
+  </tr>
+</table>
+
 ---
 
 ## 🛠️ Arquitetura do Projeto
